@@ -1,0 +1,297 @@
+{
+    "properties": {
+        "name": "myDigitalTime",
+        "id": "sp6sa",
+        "project": "test3",
+        "environment": {
+            "type": "noflo-browser",
+            "content": "<div class='area' title='.area'>\n<img id='minutes' src='http://i.meemoo.me/v1/in/23DZFKYoRTOIAjPA7sed_clock-minutes.png' style='position:absolute; top:0; left:140px; height:300px;' />\n<img id='minutes2' src='http://i.meemoo.me/v1/in/23DZFKYoRTOIAjPA7sed_clock-minutes.png' style='position:absolute; top:0; left:140px; height:200px;' />\n<img id='minutes3' src='http://i.meemoo.me/v1/in/23DZFKYoRTOIAjPA7sed_clock-minutes.png' style='position:absolute; top:0; left:140px; height:100px;' />\n</div>"
+        }
+    },
+    "inports": {},
+    "outports": {},
+    "groups": [],
+    "processes": {
+        "css/RotateElement_rcgdq": {
+            "component": "css/RotateElement",
+            "metadata": {
+                "label": "css/RotateElement",
+                "x": 612,
+                "y": -252
+            }
+        },
+        "dom/RequestAnimationFrame_mxcfq": {
+            "component": "dom/RequestAnimationFrame",
+            "metadata": {
+                "label": "dom/RequestAnimationFrame",
+                "x": 144,
+                "y": -324
+            }
+        },
+        "objects/CreateDate_zm3s2": {
+            "component": "objects/CreateDate",
+            "metadata": {
+                "label": "objects/CreateDate",
+                "x": 144,
+                "y": -144
+            }
+        },
+        "core/Split_utwh6": {
+            "component": "core/Split",
+            "metadata": {
+                "label": "core/Split",
+                "x": 180,
+                "y": 0
+            }
+        },
+        "math/Random_qa3ak": {
+            "component": "math/Random",
+            "metadata": {
+                "label": "math/Random",
+                "x": 432,
+                "y": -216
+            }
+        },
+        "math/Random_v187x": {
+            "component": "math/Random",
+            "metadata": {
+                "label": "math/Random",
+                "x": 432,
+                "y": -72
+            }
+        },
+        "dom/GetElement_uellh": {
+            "component": "dom/GetElement",
+            "metadata": {
+                "label": "dom/GetElement",
+                "x": 432,
+                "y": -360
+            }
+        },
+        "css/RotateElement_y4bdx": {
+            "component": "css/RotateElement",
+            "metadata": {
+                "label": "css/RotateElement",
+                "x": 612,
+                "y": 36
+            }
+        },
+        "dom/GetElement_j9ssg": {
+            "component": "dom/GetElement",
+            "metadata": {
+                "label": "dom/GetElement",
+                "x": 576,
+                "y": -108
+            }
+        },
+        "core/RepeatAsync_zsxfm": {
+            "component": "core/RepeatAsync",
+            "metadata": {
+                "label": "core/RepeatAsync",
+                "x": -36,
+                "y": -360
+            }
+        },
+        "math/Divide_h265n": {
+            "component": "math/Divide",
+            "metadata": {
+                "label": "math/Divide",
+                "x": 396,
+                "y": 180
+            }
+        },
+        "css/RotateElement_p07j2": {
+            "component": "css/RotateElement",
+            "metadata": {
+                "label": "css/RotateElement",
+                "x": 612,
+                "y": 252
+            }
+        },
+        "dom/GetElement_lxyfd": {
+            "component": "dom/GetElement",
+            "metadata": {
+                "label": "dom/GetElement",
+                "x": 432,
+                "y": 72
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "dom/RequestAnimationFrame_mxcfq",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "objects/CreateDate_zm3s2",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "objects/CreateDate_zm3s2",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Split_utwh6",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Split_utwh6",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "math/Random_qa3ak",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Split_utwh6",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "math/Random_v187x",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "math/Random_qa3ak",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "css/RotateElement_rcgdq",
+                "port": "percent"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "dom/GetElement_uellh",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "css/RotateElement_rcgdq",
+                "port": "element"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "math/Random_v187x",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "css/RotateElement_y4bdx",
+                "port": "percent"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "dom/GetElement_j9ssg",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "css/RotateElement_y4bdx",
+                "port": "element"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/RepeatAsync_zsxfm",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "dom/RequestAnimationFrame_mxcfq",
+                "port": "start"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Split_utwh6",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "math/Divide_h265n",
+                "port": "dividend"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "math/Divide_h265n",
+                "port": "quotient"
+            },
+            "tgt": {
+                "process": "css/RotateElement_p07j2",
+                "port": "percent"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "dom/GetElement_lxyfd",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "css/RotateElement_p07j2",
+                "port": "element"
+            },
+            "metadata": {}
+        },
+        {
+            "data": "#minutes",
+            "tgt": {
+                "process": "dom/GetElement_uellh",
+                "port": "selector"
+            }
+        },
+        {
+            "data": "start",
+            "tgt": {
+                "process": "core/RepeatAsync_zsxfm",
+                "port": "in"
+            }
+        },
+        {
+            "data": 60000,
+            "tgt": {
+                "process": "math/Divide_h265n",
+                "port": "divisor"
+            }
+        },
+        {
+            "data": "#minutes2",
+            "tgt": {
+                "process": "dom/GetElement_j9ssg",
+                "port": "selector"
+            }
+        },
+        {
+            "data": "#minutes3",
+            "tgt": {
+                "process": "dom/GetElement_lxyfd",
+                "port": "selector"
+            }
+        }
+    ]
+}
